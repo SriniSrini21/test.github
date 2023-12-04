@@ -19,8 +19,10 @@ jobs:
     - name: az login
       run: | 
 
-        az login -u emailme.srinivas.g@gmail.com -p Hihihi98!
-        az account set --subscription 79b014ea-6a1a-4930-9818-fddc78b6ce5c
+        Import-Module AzureAD
+        Connect-AzureAD -TenantId 5ce5fed3-0a25-4f4d-8697-e4b70519b7f2
+        Login-AzureAD -Credential (New-Object System.Management.Automation.PSCredential('emailme.srinivas.g@gmail.com', (ConvertTo-SecureString 'Hihihi98!' -AsPlainText -Force)))
+
         
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
