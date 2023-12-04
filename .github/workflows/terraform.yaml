@@ -39,6 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
+        working-directory: ./ 
         run: terraform plan -input=false
 
   terraform-apply:
@@ -46,4 +47,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform apply
+        working-directory: ./
         run: terraform apply -input=false -auto-approve
