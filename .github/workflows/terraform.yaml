@@ -19,7 +19,8 @@ jobs:
     - name: az login
       run: | 
 
-        az login 
+        az login
+        az account list
         az acount set --subsciption 79b014ea-6a1a-4930-9818-fddc78b6ce5c
 
         
