@@ -40,9 +40,12 @@ jobs:
     steps:
       - name: Terraform plan
         run: |
-            pwd 
-            ls -a
-            cat main.tf
+            pwd_output=$(pwd)  
+            wd_output=$(ls -a)
+            cat_output=$(cat main.tf)
+            echo "$pwd_output"
+            echo "$wd_output"
+            echo "cat_output"
             terraform plan -input=false
 
   terraform-apply:
