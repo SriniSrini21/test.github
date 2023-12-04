@@ -18,7 +18,7 @@ jobs:
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: az login
       run: | 
-        az login --service-principal -u 2a59b8eb-c4d6-467e-90ae-1933fde1b97a -p U.W8Q~oVU9FSUhhqe4~leAYySBjhOMC_8CKL~br7 --tenant 5ce5fed3-0a25-4f4d-8697-e4b70519b7f2
+        az login --service-principal -u 5ce5fed3-0a25-4f4d-8697-e4b70519b7f2 -p U.W8Q~oVU9FSUhhqe4~leAYySBjhOMC_8CKL~br7 --tenant 5ce5fed3-0a25-4f4d-8697-e4b70519b7f2
         az account set --subscription 79b014ea-6a1a-4930-9818-fddc78b6ce5c
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
