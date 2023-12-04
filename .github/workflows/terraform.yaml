@@ -20,6 +20,7 @@ jobs:
       run: | 
 
         az login --service-principal -u b3cd955f-8544-41d2-aee4-7e0cb6a5bd2d -p xuy8Q~Ktm3VVRtO~5aTB3Cu6Jp3KUI6O7Ftroazx --tenant 5ce5fed3-0a25-4f4d-8697-e4b70519b7f2 
+        echo "Login complete "
         az account set --subsciption 79b014ea-6a1a-4930-9818-fddc78b6ce5c
 
         
