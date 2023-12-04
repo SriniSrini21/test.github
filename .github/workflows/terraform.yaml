@@ -14,6 +14,7 @@ jobs:
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
   az-login:
+    needs: [checkout]
     runs-on: ubuntu-latest
     steps:
       - name: az login
@@ -27,18 +28,21 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
   terraform-init:
+    needs: [checkout, az-login]
     runs-on: ubuntu-latest
     steps:
       - name: Terraform init
         run: terraform init
 
   terraform-plan:
+    needs: [checkout, az-login,terraform-init]
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
         run: terraform plan -input=false
 
   terraform-apply:
+    needs: [checkout, az-login, terraform-init, terraform-plan]
     runs-on: ubuntu-latest
     steps:
       - name: Terraform apply
