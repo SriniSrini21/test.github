@@ -39,6 +39,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
+        run: |
+            pwd 
+            ls -a
+            cat main.tf
         run: terraform plan -input=false
 
   terraform-apply:
