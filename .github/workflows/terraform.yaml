@@ -39,13 +39,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
+        shell: bash
         run: |
-            pwd_output=$(pwd)  
-            wd_output=$(ls -a)
-            cat_output=$(cat main.tf)
-            echo "$pwd_output"
-            echo "$wd_output"
-            echo "cat_output"
+            pwd
+            ls 
+            cat main.tf
             terraform plan -input=false
 
   terraform-apply:
