@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
-        working-directory: ./ 
+        working-directory: .github/workflows 
         run: terraform plan -input=false
 
   terraform-apply:
