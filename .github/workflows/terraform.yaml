@@ -32,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform init
+        working-directory: ./hh
         run: terraform init
 
   terraform-plan:
@@ -39,16 +40,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
-        shell: bash
-        run: |
-            pwd
-            ls 
-            cat main.tf
-            terraform plan -input=false
+        working-directory: ./hh
+        run: terraform plan -input=false
 
   terraform-apply:
     needs: [checkout, az-login, terraform-init, terraform-plan]
     runs-on: ubuntu-latest
     steps:
       - name: Terraform apply
+        working-directory: ./hh
         run: terraform apply -input=false -auto-approve
