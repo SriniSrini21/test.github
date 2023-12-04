@@ -35,7 +35,7 @@ jobs:
         run: terraform init
 
   terraform-plan:
-    needs: [checkout, az-login,terraform-init]
+    needs: [checkout, az-login, terraform-init]
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
