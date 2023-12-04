@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  terraform:
+  checkout:
     name: 'Terraform'
     runs-on: ubuntu-latest
     
@@ -16,8 +16,11 @@ jobs:
       uses: actions/checkout@v3
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
-    - name: az login
-      run: | 
+    az login:
+     runs-on: ubuntu-latest
+     steps: 
+     -name : az login
+      run: |  
           echo "Logging in to Azure using Service Principal credentials.."
           az login --service-principal -u b3cd955f-8544-41d2-aee4-7e0cb6a5bd2d -p xuy8Q~Ktm3VVRtO~5aTB3Cu6Jp3KUI6O7Ftroazx --tenant 5ce5fed3-0a25-4f4d-8697-e4b70519b7f2 
           echo "Login complete "
@@ -26,15 +29,23 @@ jobs:
         
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-    - name: Terraform Init
-      run: terraform init
+    Terraform-init:
+      runs-on: ubuntu-latest
+      steps: 
+      -name: terraform init
+       run: terraform init
 
     # Generates an execution plan for Terraform
-    - name: Terraform Plan
-      run: terraform plan -input=false
+    Terraform Plan:
+      runs-on: ubuntu-latest
+      steps:
+       -name: terraform plan
+        run: terraform plan -input=false
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
-    - name: Terraform Apply
-      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+    Terraform Apply: 
+      runs-on: ubuntu-latest
+      steps:
+      name:  terraform apply
       run: terraform apply -auto-approve -input=false
