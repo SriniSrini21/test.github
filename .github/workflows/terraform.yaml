@@ -11,8 +11,6 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Set working directory
-      run: cd hh
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
   az-login:
@@ -34,7 +32,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform init
-        working-directory: hh
         run: terraform init
 
   terraform-plan:
@@ -42,7 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
-        working-directory: hh
         run: terraform plan -input=false
 
   terraform-apply:
@@ -50,5 +46,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform apply
-        working-directory: hh
         run: terraform apply -input=false -auto-approve
