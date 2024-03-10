@@ -19,5 +19,5 @@ jobs:
     steps:
       - name: Say Hello
         run: |
-          echo "Hello ${{ github.event.inputs.name }}"
-          echo "Home: ${{ github.event.inputs.home }}"
+          echo "Hello ${{ github.event.inputs.app-name }}"
+          echo "Home: ${{ github.event.inputs.app-image }}"
