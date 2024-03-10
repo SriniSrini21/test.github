@@ -9,7 +9,7 @@ on:
         default: 'Mona the Octocat'
       app-image:
         description: 'Location'
-        required: false
+        required: true
         default: 'San Francisco, CA'
 
 jobs:
