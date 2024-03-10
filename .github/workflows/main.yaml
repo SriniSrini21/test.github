@@ -3,11 +3,11 @@ name: Manual Workflow Dispatch
 on:
   workflow_dispatch:
     inputs:
-      name:
+      app-name:
         description: 'Person to greet'
         required: true
         default: 'Mona the Octocat'
-      home:
+      app-image:
         description: 'Location'
         required: false
         default: 'San Francisco, CA'
