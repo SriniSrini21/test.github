@@ -1,20 +1,23 @@
-name: Your Workflow Name
+name: Manual Workflow Dispatch
+
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'Location'
+        required: false
+        default: 'San Francisco, CA'
 
 jobs:
-  build:
+  say_hello:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      # Add any additional steps needed for your workflow here
+      - name: Say Hello
+        run: |
+          echo "Hello ${{ github.event.inputs.name }}"
+          echo "Home: ${{ github.event.inputs.home }}"
